@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as S from './styles'
 import api from '../../services/api';
+
 //componenentes
 import AsideMenu from '../../components/AsideMenu';
 import CardGalery from '../../components/CardGalery';
@@ -62,14 +63,12 @@ const Galery = () => {
       <AsideMenu active={2} />
       <S.Content>
         <S.Cards>
-          {pokemonsList.map(pokemon => {
-            return <CardGalery key={pokemon.id} pokemon={pokemon} />
-          })}
+          {pokemonsList.map(pokemon => <CardGalery key={pokemon.id} pokemon={pokemon} />)}
         </S.Cards>
       </S.Content>
-      <S.Pagination>
+      {/* <S.Pagination>
         <Pagination page={page} totalPages={totalPages} setPage={setPage} />
-      </S.Pagination>
+      </S.Pagination> */}
     </S.Container>
   )
 }
