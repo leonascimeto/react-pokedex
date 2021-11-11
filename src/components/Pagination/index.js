@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import * as S from './styles';
 // //imagens
 import left from '../../assets/icons/left.png';
 import right from '../../assets/icons/right.png';
-import { useEffect, useState } from 'react/cjs/react.development';
 
+//quantidade de botões
 const MAX_ITEMS = 5;
 
 const Pagination = ({ page, totalPages, setPage }) => {

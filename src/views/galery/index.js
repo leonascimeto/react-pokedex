@@ -66,9 +66,9 @@ const Galery = () => {
           {pokemonsList.map(pokemon => <CardGalery key={pokemon.id} pokemon={pokemon} />)}
         </S.Cards>
       </S.Content>
-      {/* <S.Pagination> */}
-      <Pagination page={page} totalPages={totalPages} setPage={setPage} />
-      {/* </S.Pagination> */}
+      <S.Pagination>
+        <Pagination page={page} totalPages={totalPages} setPage={setPage} />
+      </S.Pagination>
     </S.Container>
   )
 }
