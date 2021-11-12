@@ -5,10 +5,10 @@ export const Container = styled.div`
   height: 8rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
     input{
-      width: 30%;
+      width: 620px;
       min-width: 12rem;
       background-image: url(${props => props.img});
       background-repeat: no-repeat;
@@ -27,17 +27,19 @@ export const AutoComplete = styled.div`
   position: absolute;
   z-index: 1000;
   border-radius: .725rem;
-  top: 6rem;
+  top: 8rem;
   opacity: .97;
   width: 24%;
-  min-width: 12rem;
+  min-width: 620px;
   max-height: 18rem;
   overflow-y: auto;
   color: #fff;
   font-size: 1.5rem;
+  background-color: rgba(136, 68, 238, 0.5);
+  backdrop-filter: blur(20px);
+  --webkit-backdrop-filter: blur(20px);
 
   .suggestion{
-    background-color: var(--primary-color);
     padding: .5rem 1rem;
     border-bottom: 1px solid rgba(0,0,0, .1);
     cursor: pointer;
@@ -54,7 +56,9 @@ export const AutoComplete = styled.div`
       }
 
       &::-webkit-scrollbar-track {
-        background: var(--primary-color);       
+        background-color: rgba(136, 68, 238, 0.8);
+        backdrop-filter: blur(20px);
+        --webkit-backdrop-filter: blur(20px);     
         border-radius: 0 .725rem .725rem 0;
 
       }

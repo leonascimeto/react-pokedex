@@ -9,6 +9,8 @@ export const Content = styled.div`
   width: 100%;
   min-height: 100vh;
 `
+export const SearchArea = styled.div`
+`
 
 export const CardArea = styled.div`
   width: 100%;
@@ -25,6 +27,8 @@ export const CardArea = styled.div`
     img{
       width: 40px;
       height: 40px;
+      min-width: 20px;
+      min-height: 20px;
     }
 
     button{
@@ -41,8 +45,8 @@ export const CardArea = styled.div`
 `
 
 export const Card = styled.div`
-    margin-top: 10rem;
-    width: 560px;
+    width: 620px;
+    margin-top: 8rem;
     
 .steel {
 	background-color: #f4f4f4;
@@ -121,17 +125,61 @@ export const TopCard = styled.div`
     flex-direction: column;
     border-radius: .725rem .725rem 0 0;
 
+    #graph-image{
+      display: flex;
+    }
     
     #pokemon-image{
-      height: 200px;
+      display: flex;
+      width: 50%;
+      justify-content: center;
+      align-items: center;
+      img{
+        height: 250px;
+      }
+    }
+
+    
+    #pokemon-status{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 50%;
+    }
+
+    #graph-content{
       display: flex;
       justify-content: center;
-      position: relative;
+      align-items: center;
+      width: 100%;
+      height: 280px;
+    }
 
-      img{
-        height: 320px;
-        position: absolute;
-        bottom: 5px;
+    #graph-option{
+      margin: 1rem 0;
+        
+      .radar{
+        border-radius: 16px 0px 0px 16px;
+      }
+
+      .bar{
+        border-radius: 0px 16px 16px 0px;
+      }
+
+      .btn{
+        border: none;
+        background: none;
+        background-color: #aaa;
+        cursor: pointer;
+        color: #fff;
+        font-size: .6rem;
+        padding: .4rem .6rem;
+        font-weight: bold;
+        text-transform: uppercase;
+
+        &:hover, &.actived{
+          background-color: var(--primary-color);
+        }
       }
     }
 
@@ -152,7 +200,7 @@ export const BottomCard = styled.div`
   background-color: var(--active);
   color: #fff;
   display: grid;
-  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   border-radius: 0px 0px .725rem .725rem;
 
   .center{
@@ -199,62 +247,34 @@ export const Types = styled.div`
 
 `
 
-export const Stats = styled.div`
+export const Abilities = styled.div`
   display: grid;
+  grid-template-rows: 1fr 3fr;
   padding: .4rem;
-  grid-template-rows: repeat(4, 2.2rem);
   border-right: 1px solid rgba(255,255,255, 0.3);
   border-left: 1px solid rgba(255,255,255, 0.3);
-  
-  .stats-item{
-    display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
-  }
 
-  .stats-title{
-    font-size: 1rem;
+  #title-abilities{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-weight: bold;
-    justify-self: right;
+    font-size: .9rem;
     letter-spacing: .1rem;
+    color: var(--third-color);
   }
 
-  .stats-bar{
-    .scope-bar{
-      grid-column: 1;
-      min-width: 120px;
-      background-color: #f2f2f2;
-      border-radius: 10px;
-    }
-
-    .bar{
-      height: 1.5rem;
-      background-color: green;
-      border-radius: 10px 0px 0px 10px;
-    }
-
-    #hp-bar{
-      width: ${(props => (props.hp / 2.75))}%;
-    }
-    
-    #atk-bar{
-      width: ${props => props.atk / 2.75}%;
-    }
-
-    #def-bar{
-      width: ${props => props.def / 2.75}%;
-    }
-
-    #vel-bar{
-      width: ${props => props.vel / 2.75}%;
-    }
-
-  }
-  
-  .stats-number{
+  #names-abilities{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1rem;
+      text-transform: uppercase;
       font-weight: bold;
-      font-size: 1.2rem;
-      color: var(--third-color)
-    }
+      letter-spacing: .1rem;
+      gap: .8rem 0;
+  }
 `
 
 export const BodyInfo = styled.div`

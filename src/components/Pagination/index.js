@@ -10,7 +10,6 @@ const MAX_ITEMS = 5;
 const Pagination = ({ page, totalPages, setPage }) => {
   let firstButton = page - Math.floor(MAX_ITEMS / 2);
   let lastButton = page + Math.floor(MAX_ITEMS / 2);
-  console.log('pag: ', setPage);
 
   const [optionsButtons, setOptionsButtons] = useState([2, 3, 4, 5, 6])
 
@@ -28,8 +27,6 @@ const Pagination = ({ page, totalPages, setPage }) => {
       firstButton = totalPages - MAX_ITEMS + 1;
     }
 
-    console.log('first: ', firstButton);
-    console.log('final: ', lastButton);
     for (let i = firstButton; i <= lastButton; i++) {
       arrayOptions.push(i)
     }
