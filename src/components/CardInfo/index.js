@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 
 //icons
@@ -8,32 +8,32 @@ import categorias from '../../assets/icons/category.png'
 import localizacoes from '../../assets/icons/location-full.png'
 
 
-const CardInfo = ({ title, value }) => {
+const CardInfo = ({ title, value, active }) => {
 
-  const selectImage = () => {
+  const identyfyCard = () => {
     switch (title) {
-      case 'Pokemons':
+      case 'Especies':
         return pokemon;
       case 'Habilidades':
         return habilidades;
-      case 'Categorias':
+      case 'Tipos':
         return categorias;
       case 'Localizações':
         return localizacoes;
       default:
-        alert("falha na seleção de imagens")
+        break;
     }
   }
 
+
   return (
-    <S.Container>
+    <S.Container active={active}>
       <S.Header>
-        {console.log(selectImage)}
         <h1>{title}</h1>
       </S.Header>
       <S.Content>
         <span>{value}</span>
-        <img src={selectImage()} alt="icon card" />
+        <img src={identyfyCard()} alt="icon card" />
       </S.Content>
     </S.Container>
   )

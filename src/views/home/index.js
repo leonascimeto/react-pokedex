@@ -1,88 +1,45 @@
-import React from 'react'
-import AsideMenu from '../../components/AsideMenu';
-import CardInfo from '../../components/CardInfo';
+import React, { useState } from 'react'
 import * as S from './styles';
 
-//icons
-import pokemon from '../../assets/icons/pokemon.png'
-import habilidades from '../../assets/icons/bolt.png'
-import ChartBar from '../../components/ChartBar';
+//componenets
+import TableGraph from '../../components/tables/TableGraphHome';
+import CardInfo from '../../components/CardInfo';
+import AsideMenu from '../../components/AsideMenu';
+import TableMain from '../../components/tables/TableMainHome';
 
 const Home = () => {
+
+  const [selectCard, setSelectCard] = useState('especies');
+
+  function handleClick(cardSelected) {
+    if (selectCard !== cardSelected)
+      setSelectCard(cardSelected)
+  }
+
   return (
     <S.Container>
       <AsideMenu active={1} />
       <S.Content>
         <S.Cards>
-          <CardInfo title="Pokemons" value={1125} />
-          <CardInfo title="Habilidades" value={500} />
-          <CardInfo title="Categorias" value={825} />
-          <CardInfo title="Localizações" value={1045} />
+          <button className="btn-cards .active" onClick={() => handleClick('especies')} >
+            <CardInfo title="Especies" selectCard={selectCard} value={1125} active={selectCard === 'especies'} />
+          </button>
+          <button className="btn-cards" onClick={() => handleClick('habilidades')} >
+            <CardInfo title="Habilidades" selectCard={selectCard} value={500} active={selectCard === 'habilidades'} />
+          </button>
+          <button className="btn-cards" onClick={() => handleClick('tipos')} >
+            <CardInfo title="Tipos" selectCard={selectCard} value={825} active={selectCard === 'tipos'} />
+          </button>
+          <button className="btn-cards" onClick={() => handleClick('localizacoes')} >
+            <CardInfo title="Localizações" selectCard={selectCard} value={1045} active={selectCard === 'localizacoes'} />
+          </button>
         </S.Cards>
         <S.Main>
           <S.Table>
-            <div className="header">
-              <span>Pokemons</span>
-              <img src={pokemon} alt="Pokemon" />
-            </div>
-            <div className="titles">
-              <span>Especie</span>
-              <span>Caracteristica</span>
-            </div>
-            <div className="content">
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-              <div className="row">
-                <span>Charizard</span>
-                <span>Come demais</span>
-              </div>
-
-            </div>
+            <TableMain selectCard={selectCard} />
           </S.Table>
           <S.Graph>
-            <div className="header">
-              <span>Habilidades mais utilizadas</span>
-              <img src={habilidades} alt="habilidades" />
-            </div>
-            <div className="content">
-              <div className="chartBar">
-                <ChartBar />
-              </div>
-            </div>
+            <TableGraph />
           </S.Graph>
         </S.Main>
       </S.Content>
