@@ -14,8 +14,8 @@ export const Content = styled.div`
   width:150px;
   height: 150px;
   border-radius: 50%;
-  background-color: rgba(0,0,0,.2);
-  border: 8px solid var(--primary-color);
+  background-color: rgba(0,0,0,.5);
+  border: 8px solid #0052b6;
   margin-top: 2rem;
 
   display: flex;
@@ -33,7 +33,7 @@ export const Content = styled.div`
   }
 
   .tippy-box[data-theme~='primary'] {
-    background-color: #201030;
+    background-image: var(--primary-color);
     opacity: .98;
     color: #fff;
   }
@@ -43,16 +43,16 @@ export const Content = styled.div`
   }
 
   .tippy-box[data-theme~='second'] {
-    background-color: var(--primary-color);
+    background-image: var(--active);
     color: #fff;
   }
 
   .tippy-box[data-theme~='second'][data-placement^='bottom'] > .tippy-arrow::before {
-    border-bottom-color: var(--primary-color);
+    border-bottom-color: #201030;
   }
   
   .tippy-box[data-theme~='second'][data-placement^='top'] > .tippy-arrow::before {
-    border-top-color: var(--primary-color);
+    border-top-color: #201030;
   }
 
 
@@ -95,8 +95,8 @@ export const Content = styled.div`
 
       button{
         padding: .5rem 1rem;
-        background-color: var(--third-color);
-        color: var(--active);
+        background-image: var(--active);
+        color: #fff;
         font-size: 1.2rem;
         cursor: pointer;
         border: none;

@@ -7,8 +7,8 @@ export const Container = styled.div`
 export const Content = styled.div`
   padding-left: 23rem;
   width: 100%;
-  min-height: 90vh;
   padding-top: 3rem;
+  min-height: 85vh;
 `
 
 export const Cards = styled.div`
@@ -20,4 +20,6 @@ export const Cards = styled.div`
 
 export const Pagination = styled.div`
   padding-left: 23rem;
+  padding-top: 1rem;
+  min-height: 15vh;
 `

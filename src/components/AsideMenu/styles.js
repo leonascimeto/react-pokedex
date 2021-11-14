@@ -5,6 +5,7 @@ export const Container = styled.div`
   display: grid;
   grid-template-rows: repeat(10, 10vh);
   position: fixed;
+  background-image: var(--primary-color);
 `;
 
 export const Logo = styled.div`
@@ -12,14 +13,12 @@ export const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
-
 `
 
 export const Options = styled.div`
   grid-row: 4/11;
   .actived{
-    background-color: #201030;
+    background-image: var(--active);
   }
 
   button{
@@ -29,12 +28,11 @@ export const Options = styled.div`
     justify-content: center;
     align-items: center;
     background:none;
-    background-color: var(--primary-color);
     border: none;
     cursor: pointer;
 
     &:hover{
-      background-color: #201030;
+      background-image: var(--active);
     }
 
   }

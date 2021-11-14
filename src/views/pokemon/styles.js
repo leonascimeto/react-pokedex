@@ -159,11 +159,11 @@ export const TopCard = styled.div`
       margin: 1rem 0;
         
       .radar{
-        border-radius: 16px 0px 0px 16px;
+        border-radius: 0px 16px 16px 0px;
       }
 
       .bar{
-        border-radius: 0px 16px 16px 0px;
+        border-radius: 16px 0px 0px 16px;
       }
 
       .btn{
@@ -178,7 +178,7 @@ export const TopCard = styled.div`
         text-transform: uppercase;
 
         &:hover, &.actived{
-          background-color: var(--primary-color);
+          background-image: var(--active);
         }
       }
     }
@@ -197,7 +197,7 @@ export const TopCard = styled.div`
 // ###################################  bottom card styles  ############################################
 
 export const BottomCard = styled.div`
-  background-color: var(--active);
+  background-image: var(--primary-color);
   color: #fff;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

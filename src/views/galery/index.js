@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import * as S from './styles'
 import api from '../../services/api';
+import limitPokemons from '../../utils/global-info';
 
 //componenentes
 import AsideMenu from '../../components/AsideMenu';
@@ -12,8 +13,9 @@ const Galery = () => {
   const [page, setPage] = useState(1);
   const [pokemonsList, setPokeonList] = useState([]);
   const peerPage = 20;
-  const totalPokemons = 646;
+  const totalPokemons = limitPokemons;
   const totalPages = Math.ceil(totalPokemons / peerPage);
+  console.log(totalPokemons);
 
   async function fetchHabitat(id) {
     try {

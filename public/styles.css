@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 :root {
-  --primary-color: #8844EE;
-  --second-color: #61BDD5;
+  --primary-color: linear-gradient(to bottom, #0052b6, #004aa4, #004393, #003b82, #023471);
+  --second-color: #61BDD5; 
   --third-color: #FFCC05;
   --bg: #202124;
-  --active: #201030;
+  --active: linear-gradient(to left top, #e16033, #da5c2f, #d4572c, #cd5328, #c74f25, #c04a21, #b8461e, #b1411a, #a83a15, #9e340f, #952d09, #8c2604);
 
-  --bg-main: linear-gradient(to right bottom, #61bdd5, #56aec6, #4ba0b7, #3f92a8, #34849a, #2b778b, #226a7d, #195e6f, #114f5e, #0a404d, #03323d, #00252e);
+  --bg-main: linear-gradient(to top, #161412, #151311, #141210, #13110f, #12100e, #110f0d, #0f0d0b, #0e0c0a, #0b0908, #080605, #040303, #000000); 
 }
 
 *,
@@ -20,7 +20,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', 'Arial', sans-serif;
-  background-color: var(--bg);
+  background-image: var(--bg-main);
 }
 
 ul,

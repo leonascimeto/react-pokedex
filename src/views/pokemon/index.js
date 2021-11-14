@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AsideMenu from '../../components/AsideMenu';
 import api from '../../services/api';
+import limitPokemons from '../../utils/global-info'
 
 import * as S from './styles';
 
@@ -10,17 +11,16 @@ import right from '../../assets/icons/right.png';
 import Search from '../../components/Search';
 import typesIcons from '../../utils/typesIcons';
 import { useParams } from 'react-router';
-import RadarStatus from '../../components/RadarStatus';
-import BarStatus from '../../components/BarStatus';
+import RadarStatus from '../../components/graphs/RadarStatus';
+import BarStatus from '../../components/graphs/BarStatus';
 
 const Pokemon = () => {
-  const lastPokemonId = 649;
+  const lastPokemonId = limitPokemons;
   const { id } = useParams();
-  console.log(id)
   const [pokemon, setPokemon] = useState({});
   const [idPokemon, setIdPokemon] = useState(id ? Number.parseInt(id, 10) : 1);
-  const [btnRadar, setBtnRadar] = useState(true);
-  const [btnBar, setBtnBar] = useState(false);
+  const [btnRadar, setBtnRadar] = useState(false);
+  const [btnBar, setBtnBar] = useState(true);
   window.history.pushState("", "", "/pokemon");
 
   async function fetchPokemonById() {
@@ -118,8 +118,8 @@ const Pokemon = () => {
                   </div>
                   <div id="graph-option">
                     <div id="buttons">
-                      <button className={`btn radar ${btnRadar && 'actived'}`} onClick={graph.radar} >radar</button>
                       <button className={`btn bar ${btnBar && 'actived'}`} onClick={graph.bar} >barra</button>
+                      <button className={`btn radar ${btnRadar && 'actived'}`} onClick={graph.radar} >radar</button>
                     </div>
                   </div>
                 </div>

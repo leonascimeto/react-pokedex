@@ -4,7 +4,7 @@ export const Container = styled.button`
   background: none;
   border: none;
   //background-color: var(--primary-color);
-  background-color: ${props => (props.active === true) ? '#201030' : '#8844EE'};
+  background-image: ${props => (props.active === true) ? `var(--active)` : `var(--primary-color)`};
   width: 300px;
   height: 180px;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
@@ -12,9 +12,10 @@ export const Container = styled.button`
   font-weight: bold;
   cursor: pointer;
   margin-bottom: 1rem;
+  border-radius: 10px;
 
   &:hover{
-    background-color: #201030;
+    background-image: var(--active);
   }
 `
 

@@ -22,7 +22,7 @@ export const Cards = styled.div`
     }
 
     .active{
-      background-color:#fb1;
+      background-image:var(--active);
     }
 
 `
@@ -35,8 +35,10 @@ export const Main = styled.div`
 `
 export const Table = styled.div`
     margin-top: 4rem;
+    width: 50%;
 `
 
 export const Graph = styled.div`
   margin-top: 4rem;
+  width: 40%;
 `

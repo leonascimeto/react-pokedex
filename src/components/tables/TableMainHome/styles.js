@@ -1,13 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 700px;
     height: 560px;
-    background-color: var(--primary-color);
+    background-image: var(--primary-color);
     border-radius: 10px;
     display: grid;
     grid-template-rows: 2fr 1fr 7fr;
-    border: 3px solid var(--primary-color);
 
     .header{
       color: #fff;
@@ -26,7 +24,7 @@ export const Container = styled.div`
 
     .titles{
       display: grid;
-      grid-template-columns: 4fr 6fr;
+      grid-template-columns: 1fr 1fr;
       font-weight: bold;
       color: #fff;
       font-size: 1.4rem;
@@ -47,7 +45,7 @@ export const Container = styled.div`
 
       .row{
         display: grid;
-        grid-template-columns: 4fr 6fr;
+        grid-template-columns: 1fr 1fr;
         height: 3rem;
 
         border-top: 1px solid var(--primary-color);
@@ -70,7 +68,7 @@ export const Container = styled.div`
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: #1F1134;    /* color of the scroll thumb */
+        background-image: var(--active);    /* color of the scroll thumb */
         border-radius: 3rem;       /* roundness of the scroll thumb */
         border: 3px solid var(--primary-color);  /* creates padding around scroll thumb */
       }

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  margin: 1rem 0;
   display: flex;
   justify-content: center;
 
@@ -18,7 +17,7 @@ export const Container = styled.div`
     }
 
     &.number{
-      background-color: var(--primary-color);
+      background-image: var(--primary-color);
       width: 2rem;
       height: 2rem;
       border-radius: 50%;
@@ -27,8 +26,7 @@ export const Container = styled.div`
     }
 
     &.active{
-      background: var(--third-color);
-      color: var(--bg);
+      background-image: var(--active);
     }
 
     &.arrow{

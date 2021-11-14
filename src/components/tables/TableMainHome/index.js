@@ -7,7 +7,7 @@ import habilidadesIcon from '../../../assets/icons/bolt.png';
 import tiposIcon from '../../../assets/icons/category.png';
 import localizacoesIcon from '../../../assets/icons/location-full.png';
 
-const TableMain = ({ selectCard }) => {
+const TableMain = ({ selectCard, cardValues }) => {
 
   function identyfyCard() {
     switch (selectCard) {
@@ -48,9 +48,8 @@ const TableMain = ({ selectCard }) => {
 
 
   async function fetchSpecies() {
-    const totalSpecies = await api.get('/pokemon-species').then(res => res.data.count);
 
-    const arrayPromises = await api.get(`/pokemon-species/?limit=${totalSpecies}`).then(res => res.data.results);
+    const arrayPromises = await api.get(`/pokemon-species/?limit=${cardValues[0]}`).then(res => res.data.results);
 
     const arraySpecies = [];
 
@@ -70,32 +69,9 @@ const TableMain = ({ selectCard }) => {
 
   }
 
-  async function fetchAbilities() {
-    const totalAbilities = await api.get('/ability').then(res => res.data.count);
-
-    const arrayPromises = await api.get(`ability?limit=${totalAbilities}`).then(res => res.data.results)
-
-    const arrayAbilities = [];
-
-    Promise.all(arrayPromises.map(async item => {
-      const response = await api.get(item.url);
-
-      const { id, name, pokemon } = response.data;
-
-      const data = {
-        id,
-        tdLeft: name,
-        tdRight: pokemon.length
-      }
-
-      arrayAbilities.push(data);
-    })).then(() => setDataTable(arrayAbilities));
-  }
-
   async function fetchTypes() {
-    const totalTypes = await api.get('/type').then(res => res.data.count);
 
-    const arrayPromises = await api.get(`type?limit=${totalTypes}`).then(res => res.data.results)
+    const arrayPromises = await api.get(`type?limit=${cardValues[1]}`).then(res => res.data.results)
 
     const arrayTypes = [];
 
@@ -114,10 +90,30 @@ const TableMain = ({ selectCard }) => {
     })).then(() => setDataTable(arrayTypes));
   }
 
-  async function fetchLocations() {
-    const totalLocations = await api.get('/location').then(res => res.data.count);
+  async function fetchAbilities() {
 
-    const arrayPromises = await api.get(`location?limit=${totalLocations}`).then(res => res.data.results)
+    const arrayPromises = await api.get(`ability?limit=${cardValues[2]}`).then(res => res.data.results)
+
+    const arrayAbilities = [];
+
+    Promise.all(arrayPromises.map(async item => {
+      const response = await api.get(item.url);
+
+      const { id, name, pokemon } = response.data;
+
+      const data = {
+        id,
+        tdLeft: name,
+        tdRight: pokemon.length
+      }
+
+      arrayAbilities.push(data);
+    })).then(() => setDataTable(arrayAbilities));
+  }
+
+  async function fetchLocations() {
+
+    const arrayPromises = await api.get(`location?limit=${cardValues[3]}`).then(res => res.data.results)
 
     const arrayLocations = [];
 
@@ -138,6 +134,7 @@ const TableMain = ({ selectCard }) => {
     })).then(() => setDataTable(arrayLocations))
   }
 
+
   useEffect(() => {
     switch (selectCard) {
       case 'especies':
@@ -155,7 +152,7 @@ const TableMain = ({ selectCard }) => {
       default:
         alert('seleção de dados inválido')
     }
-  }, [selectCard])
+  }, [selectCard]);
 
   return (
     <S.Container>

@@ -35,7 +35,7 @@ export const AutoComplete = styled.div`
   overflow-y: auto;
   color: #fff;
   font-size: 1.5rem;
-  background-color: rgba(136, 68, 238, 0.5);
+  background-image: var(--primary-color);
   backdrop-filter: blur(20px);
   --webkit-backdrop-filter: blur(20px);
 
@@ -46,7 +46,7 @@ export const AutoComplete = styled.div`
     transition: .2s;
 
     &:hover{
-        background-color: var(--active);
+        background-image: var(--active);
       } 
   }
       
@@ -56,15 +56,15 @@ export const AutoComplete = styled.div`
       }
 
       &::-webkit-scrollbar-track {
-        background-color: rgba(136, 68, 238, 0.8);
-        backdrop-filter: blur(20px);
-        --webkit-backdrop-filter: blur(20px);     
+        background-image: var(--primary-color);
+        backdrop-filter: blur(10px);
+        --webkit-backdrop-filter: blur(10px);     
         border-radius: 0 .725rem .725rem 0;
 
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: #1F1134; 
+        background-image: var(--active); 
         border-radius: 3rem;    
         border: 3px solid var(--primary-color);  
       }

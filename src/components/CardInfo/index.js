@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import * as S from './styles'
 
 //icons
-import pokemon from '../../assets/icons/pokemon.png'
-import habilidades from '../../assets/icons/bolt.png'
-import categorias from '../../assets/icons/category.png'
-import localizacoes from '../../assets/icons/location-full.png'
+import pokemon from '../../assets/icons/pokemon.png';
+import habilidades from '../../assets/icons/bolt.png';
+import categorias from '../../assets/icons/category.png';
+import localizacoes from '../../assets/icons/location-full.png';
 
 
 const CardInfo = ({ title, value, active }) => {
