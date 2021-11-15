@@ -33,7 +33,7 @@ export const Container = styled.div`
             cursor:pointer;
             background: none;
             border: none;
-            background-color: #aaa;
+            background-color: #54a0f7;
             padding: .4rem .8rem;
             color: #fff;
             text-transform: uppercase;

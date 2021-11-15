@@ -11,7 +11,7 @@ import shield from '../../../assets/icons/shield.png';
 import run from '../../../assets/icons/run.png';
 import { useEffect } from 'react/cjs/react.development';
 
-const TableGraph = ({ loading, setLoading }) => {
+const TableGraph = ({ setLoading }) => {
   const [btnActive, setBtnActive] = useState('hp');
   const [allPokemons, setAllPokemons] = useState([]);
   const [ranking, setRanking] = useState({});

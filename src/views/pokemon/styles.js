@@ -207,7 +207,7 @@ export const TopCard = styled.div`
       .btn{
         border: none;
         background: none;
-        background-color: #aaa;
+        background-color: #54a0f7;
         cursor: pointer;
         color: #fff;
         font-size: .6rem;
