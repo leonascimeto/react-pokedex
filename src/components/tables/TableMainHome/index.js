@@ -7,7 +7,7 @@ import habilidadesIcon from '../../../assets/icons/bolt.png';
 import tiposIcon from '../../../assets/icons/category.png';
 import localizacoesIcon from '../../../assets/icons/location-full.png';
 
-const TableMain = ({ selectCard, cardValues }) => {
+const TableMain = ({ selectCard, cardValues, loading, setLoading }) => {
 
   function identyfyCard() {
     switch (selectCard) {
@@ -48,6 +48,9 @@ const TableMain = ({ selectCard, cardValues }) => {
 
 
   async function fetchSpecies() {
+    setLoading(true);
+
+    console.log('numero de items: ', cardValues[0]);
 
     const arrayPromises = await api.get(`/pokemon-species/?limit=${cardValues[0]}`).then(res => res.data.results);
 
@@ -65,12 +68,12 @@ const TableMain = ({ selectCard, cardValues }) => {
       }
       arraySpecies.push(data);
 
-    })).then(() => setDataTable(arraySpecies));
+    })).then(() => setDataTable(arraySpecies)).then(() => setLoading(false));
 
   }
 
   async function fetchTypes() {
-
+    setLoading(true);
     const arrayPromises = await api.get(`type?limit=${cardValues[1]}`).then(res => res.data.results)
 
     const arrayTypes = [];
@@ -87,10 +90,11 @@ const TableMain = ({ selectCard, cardValues }) => {
       }
 
       arrayTypes.push(data);
-    })).then(() => setDataTable(arrayTypes));
+    })).then(() => setDataTable(arrayTypes)).then(() => setLoading(false));
   }
 
   async function fetchAbilities() {
+    setLoading(true);
 
     const arrayPromises = await api.get(`ability?limit=${cardValues[2]}`).then(res => res.data.results)
 
@@ -108,10 +112,11 @@ const TableMain = ({ selectCard, cardValues }) => {
       }
 
       arrayAbilities.push(data);
-    })).then(() => setDataTable(arrayAbilities));
+    })).then(() => setDataTable(arrayAbilities)).then(() => setLoading(false));
   }
 
   async function fetchLocations() {
+    setLoading(true);
 
     const arrayPromises = await api.get(`location?limit=${cardValues[3]}`).then(res => res.data.results)
 
@@ -131,7 +136,7 @@ const TableMain = ({ selectCard, cardValues }) => {
       }
 
       arrayLocations.push(data);
-    })).then(() => setDataTable(arrayLocations))
+    })).then(() => setDataTable(arrayLocations)).then(() => setLoading(false));
   }
 
 
@@ -152,7 +157,7 @@ const TableMain = ({ selectCard, cardValues }) => {
       default:
         alert('seleção de dados inválido')
     }
-  }, [selectCard]);
+  }, [selectCard, cardValues]);
 
   return (
     <S.Container>

@@ -6,8 +6,7 @@ export const Container = styled.div`
   background-image: var(--primary-color);
   display: grid;
   grid-template-rows: 3fr 7fr;
-  border-radius: 10px;
-
+  border-radius: 10px; 
 
   .header{
       color: #fff;
@@ -22,6 +21,8 @@ export const Container = styled.div`
         justify-content: space-between;
         align-items: center;
       }
+
+     
 
       #filters{
         display: flex;
@@ -63,13 +64,6 @@ export const Container = styled.div`
               background-image: ${props => props.btnActive === 'vel' && `var(--active)`};
           }
 
-        
-          #icon{
-            img{
-              width: 2rem;
-              height: 2rem;
-            }
-          }
       }
 
       img{
@@ -86,9 +80,26 @@ export const Container = styled.div`
     justify-content: center;
     height: 100%;
 
+    
+
     .chartBar{
       width: 90%;
     }
   }
+
+      @media(max-width: 560px){
+        .header{
+          font-size: 1.2rem;
+        }
+
+        #filters{
+          .btn{
+            padding: .2rem;
+            font-size: .6rem;
+          }
+        }
+
+        height: 200px;
+      }
 
 `;

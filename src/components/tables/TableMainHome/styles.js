@@ -29,9 +29,19 @@ export const Container = styled.div`
       color: #fff;
       font-size: 1.4rem;
       letter-spacing: 2px;
+      padding: 0 8px;
 
       span{
         margin-left: 2rem;
+      }
+
+      @media(max-width: 560px){
+        font-size: 1rem;
+        text-align: center;
+
+        span{
+          justify-self: flex-start;
+        }
       }
     }
 

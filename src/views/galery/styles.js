@@ -1,14 +1,29 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  
+  display: grid;
+  grid-template-columns: 360px auto;
+
+  @media(max-width: 1024px){
+    grid-template-columns: 160px auto;
+  }
+
+  @media(max-width: 560px){
+    grid-template-columns: 1fr;
+  }
 `
 
+export const Menu = styled.div`
+
+`;
+
 export const Content = styled.div`
-  padding-left: 23rem;
+  min-height: 100vh;
   width: 100%;
-  padding-top: 3rem;
-  min-height: 85vh;
+  position: relative;
+  display: grid;
+  grid-template-rows: auto 6rem;
+
 `
 
 export const Cards = styled.div`
@@ -19,7 +34,5 @@ export const Cards = styled.div`
 `
 
 export const Pagination = styled.div`
-  padding-left: 23rem;
-  padding-top: 1rem;
-  min-height: 15vh;
+  padding: 1rem 0;
 `

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.button`
   background: none;
   border: none;
-  //background-color: var(--primary-color);
+  padding: .5rem;
   background-image: ${props => (props.active === true) ? `var(--active)` : `var(--primary-color)`};
   width: 300px;
   height: 180px;
@@ -11,8 +11,17 @@ export const Container = styled.button`
   color: #fff;
   font-weight: bold;
   cursor: pointer;
-  margin-bottom: 1rem;
   border-radius: 10px;
+
+  @media(max-width: 1024px){
+    width: 150px;
+    height: 100px;
+  }
+
+  @media(max-width: 560px){
+    width: 120px;
+    height: 80px;
+  }
 
   &:hover{
     background-image: var(--active);
@@ -27,6 +36,9 @@ export const Header = styled.div`
 
   h1{
     font-size: 2rem;
+    @media(max-width: 1024px){
+      font-size: 1rem;
+    }
   }
 `
 
@@ -41,5 +53,21 @@ export const Content = styled.div`
   img{
     width: 72px;
     height: 72px;
+  }
+  @media(max-width: 1024px){
+      img{
+        width: 2rem;
+        height: 2rem;
+      }
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      gap: .5rem;
+  }
+  @media(max-width: 560px){
+    img{
+      display: none;
+    }
   }
 `

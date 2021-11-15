@@ -2,10 +2,8 @@
 
 :root {
   --primary-color: linear-gradient(to bottom, #0052b6, #004aa4, #004393, #003b82, #023471);
-  --second-color: #61BDD5; 
-  --third-color: #FFCC05;
   --bg: #202124;
-  --active: linear-gradient(to left top, #e16033, #da5c2f, #d4572c, #cd5328, #c74f25, #c04a21, #b8461e, #b1411a, #a83a15, #9e340f, #952d09, #8c2604);
+  --active: radial-gradient(circle, #ff7f00, #fe8004, #fd8208, #fc830b, #fb840f);
 
   --bg-main: linear-gradient(to top, #161412, #151311, #141210, #13110f, #12100e, #110f0d, #0f0d0b, #0e0c0a, #0b0908, #080605, #040303, #000000); 
 }
@@ -21,6 +19,8 @@ body {
   padding: 0;
   font-family: 'Roboto', 'Arial', sans-serif;
   background-image: var(--bg-main);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 ul,

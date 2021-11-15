@@ -7,9 +7,10 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
+
     input{
-      width: 620px;
-      min-width: 12rem;
+      width: 50%;
+      min-width: 340px;
       background-image: url(${props => props.img});
       background-repeat: no-repeat;
       background-size: 1.8rem;
@@ -24,13 +25,13 @@ export const Container = styled.div`
 `
 
 export const AutoComplete = styled.div`
+  width: 38%;
+  min-width: 340px;
   position: absolute;
   z-index: 1000;
   border-radius: .725rem;
-  top: 8rem;
+  top: 9rem;
   opacity: .97;
-  width: 24%;
-  min-width: 620px;
   max-height: 18rem;
   overflow-y: auto;
   color: #fff;
@@ -38,6 +39,10 @@ export const AutoComplete = styled.div`
   background-image: var(--primary-color);
   backdrop-filter: blur(20px);
   --webkit-backdrop-filter: blur(20px);
+  
+  @media (max-width: 560px){
+    top: 14rem;
+  }
 
   .suggestion{
     padding: .5rem 1rem;

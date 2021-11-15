@@ -1,28 +1,47 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: grid;
+  grid-template-columns: 360px auto;
+
+  @media(max-width: 1024px){
+    grid-template-columns: 160px auto;
+  }
+
+  @media(max-width: 560px){
+    grid-template-columns: 1fr;
+  }
+`
+
+export const Menu = styled.div`
 
 `
 
 export const Content = styled.div`
-  padding-left: 23rem;
-  width: 100%;
   min-height: 100vh;
+  padding: 1rem .5rem;
 `
 export const SearchArea = styled.div`
+
 `
 
 export const CardArea = styled.div`
-  width: 100%;
   display: flex;
   justify-content: center;
+  padding-top: 2rem;
 
   .arrow{
     height: 100%;
     align-self: center;
     position: relative;
     top: 100px;
-    margin: 0 1rem;
+
+    @media(max-width: 560px){
+      img{
+        width: 1rem;
+        height: 1rem;
+      }
+    }
 
     img{
       width: 40px;
@@ -45,8 +64,10 @@ export const CardArea = styled.div`
 `
 
 export const Card = styled.div`
-    width: 620px;
-    margin-top: 8rem;
+    padding-top: 2rem;
+    width: 50%;
+    min-width: 280px;
+    
     
 .steel {
 	background-color: #f4f4f4;
@@ -127,6 +148,13 @@ export const TopCard = styled.div`
 
     #graph-image{
       display: flex;
+      
+      @media(max-width: 1024px){
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+      }
     }
     
     #pokemon-image{
@@ -134,6 +162,12 @@ export const TopCard = styled.div`
       width: 50%;
       justify-content: center;
       align-items: center;
+
+      @media(max-width: 1024px){
+        width: 100%;
+      }
+
+      
       img{
         height: 250px;
       }
@@ -145,13 +179,17 @@ export const TopCard = styled.div`
       flex-direction: column;
       align-items: center;
       width: 50%;
+
+      @media(max-width: 1024px){
+        width: 100%;
+      }
     }
 
     #graph-content{
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
+      width: 80%;
       height: 280px;
     }
 
@@ -203,6 +241,10 @@ export const BottomCard = styled.div`
   grid-template-columns: 1fr 1fr 1fr;
   border-radius: 0px 0px .725rem .725rem;
 
+  @media(max-width: 1024px){
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
   .center{
     align-self: center;
     justify-self: center;
@@ -226,6 +268,12 @@ export const Types = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+
+  @media(max-width: 1024px){
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
+  }
 
   .type{
     display: flex;
@@ -254,6 +302,15 @@ export const Abilities = styled.div`
   border-right: 1px solid rgba(255,255,255, 0.3);
   border-left: 1px solid rgba(255,255,255, 0.3);
 
+  @media(max-width: 1024px){
+    flex-direction: row;
+    flex-wrap: wrap;
+    border:none;
+    border-bottom: 1px solid rgba(255,255,255, 0.3);
+    border-top: 1px solid rgba(255,255,255, 0.3);
+    padding: 2rem .4rem;
+  }
+
   #title-abilities{
     display: flex;
     justify-content: center;
@@ -274,6 +331,10 @@ export const Abilities = styled.div`
       font-weight: bold;
       letter-spacing: .1rem;
       gap: .8rem 0;
+      
+      @media(max-width: 1024px){
+        flex-wrap: wrap;
+      }
   }
 `
 
@@ -282,14 +343,21 @@ export const BodyInfo = styled.div`
   grid-template-rows: 4.4rem 4.4rem;
   padding: 0 .4rem;
 
+  @media(max-width: 1024px){
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+  }
+
   .info{
     font-size: 1.5rem;
-
 
     sub{
     font-size: .8rem;
     font-weight: 400;
     }
   }
-  
 `

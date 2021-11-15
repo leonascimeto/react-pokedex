@@ -39,7 +39,7 @@ export const Content = styled.div`
   }
 
   .tippy-box[data-theme~='primary'][data-placement^='bottom'] > .tippy-arrow::before {
-    border-bottom-color: #201030;
+    border-bottom-color: #005288;
   }
 
   .tippy-box[data-theme~='second'] {
@@ -48,11 +48,11 @@ export const Content = styled.div`
   }
 
   .tippy-box[data-theme~='second'][data-placement^='bottom'] > .tippy-arrow::before {
-    border-bottom-color: #201030;
+    border-bottom-color: #ff7f00;
   }
   
   .tippy-box[data-theme~='second'][data-placement^='top'] > .tippy-arrow::before {
-    border-top-color: #201030;
+    border-top-color: #ff7f00;
   }
 
 

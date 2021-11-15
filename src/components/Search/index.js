@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import * as S from './styles';
 import lupa from '../../assets/icons/search.png';
 import api from '../../services/api';
+import limitPokemons from '../../utils/global-info';
 
 const Search = ({ setIdPokemon }) => {
-  const totalPokemons = 646;
+  const totalPokemons = limitPokemons;
   const [inputText, setInputText] = useState('');
   const [nameList, setNameList] = useState([]);
   const [suggestions, setSuggestions] = useState([]);

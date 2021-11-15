@@ -7,7 +7,7 @@ import right from '../../assets/icons/right.png';
 //quantidade de botões
 const MAX_ITEMS = 5;
 
-const Pagination = ({ page, totalPages, setPage }) => {
+const Pagination = ({ page, totalPages, setPage, loading }) => {
   let firstButton = page - Math.floor(MAX_ITEMS / 2);
   let lastButton = page + Math.floor(MAX_ITEMS / 2);
 
@@ -36,13 +36,13 @@ const Pagination = ({ page, totalPages, setPage }) => {
 
   const controls = {
     next() {
-      setPage(page + 1);
+      !loading && setPage(page + 1);
     },
     prev() {
-      setPage(page - 1);
+      !loading && setPage(page - 1);
     },
     goTo(page) {
-      setPage(page);
+      !loading && setPage(page);
     }
   }
 

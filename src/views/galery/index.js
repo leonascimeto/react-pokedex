@@ -7,6 +7,7 @@ import limitPokemons from '../../utils/global-info';
 import AsideMenu from '../../components/AsideMenu';
 import CardGalery from '../../components/CardGalery';
 import Pagination from '../../components/Pagination';
+import LoadingSpinnerScreen from '../../components/LoadingSpinnerScreen';
 
 
 const Galery = () => {
@@ -16,6 +17,7 @@ const Galery = () => {
   const totalPokemons = limitPokemons;
   const totalPages = Math.ceil(totalPokemons / peerPage);
   console.log(totalPokemons);
+  const [loading, setLoading] = useState(true);
 
   async function fetchHabitat(id) {
     try {
@@ -30,6 +32,7 @@ const Galery = () => {
   }
 
   async function fetchPokemons() {
+    setLoading(true);
     //definindo id dos pokemon que serão carregados baseados na página atual e limite de items
     const idInit = (page - 1) * peerPage;
     const finalId = (page < totalPages) ? idInit + peerPage : totalPokemons;
@@ -48,9 +51,10 @@ const Galery = () => {
             habitat,
             img: sprites.other.dream_world.front_default
           })
-        });
+        }).then(() => setLoading(false))
       }
       setPokeonList(pokemons);
+      setLoading(false);
     } catch (error) {
       alert('falha na listagem dos items');
     }
@@ -62,15 +66,18 @@ const Galery = () => {
 
   return (
     <S.Container>
-      <AsideMenu active={2} />
+      <S.Menu>
+        <AsideMenu active={2} />
+      </S.Menu>
       <S.Content>
         <S.Cards>
-          {pokemonsList.map(pokemon => <CardGalery key={pokemon.id} pokemon={pokemon} />)}
+
+          {loading ? <LoadingSpinnerScreen /> : pokemonsList.map(pokemon => <CardGalery key={pokemon.id} pokemon={pokemon} />)}
         </S.Cards>
+        <S.Pagination>
+          <Pagination page={page} totalPages={totalPages} setPage={setPage} loading={loading} />
+        </S.Pagination>
       </S.Content>
-      <S.Pagination>
-        <Pagination page={page} totalPages={totalPages} setPage={setPage} />
-      </S.Pagination>
     </S.Container>
   )
 }

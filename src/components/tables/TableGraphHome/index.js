@@ -5,19 +5,19 @@ import totalPokemons from '../../../utils/global-info';
 
 import BarPokemonsRanking from '../../graphs/BarPokemonsRanking';
 
-import top from '../../../assets/icons/top.png';
 import heart from '../../../assets/icons/heart.png';
 import sword from '../../../assets/icons/sword.png';
 import shield from '../../../assets/icons/shield.png';
 import run from '../../../assets/icons/run.png';
 import { useEffect } from 'react/cjs/react.development';
 
-const TableGraph = () => {
+const TableGraph = ({ loading, setLoading }) => {
   const [btnActive, setBtnActive] = useState('hp');
   const [allPokemons, setAllPokemons] = useState([]);
   const [ranking, setRanking] = useState({});
 
   async function fetchStatsAllPokemons() {
+    setLoading(true);
     try {
       //const total = await api.get('/pokemon').then(res => res.data.count);
       const total = totalPokemons;
@@ -42,7 +42,7 @@ const TableGraph = () => {
 
         arrayStats.push(objPokemon);
 
-      })).then(() => setAllPokemons(arrayStats));
+      })).then(() => setAllPokemons(arrayStats)).then(() => setLoading(false));
 
     } catch (err) {
       alert('Error: falha na conexão com os dados do gráfico')
@@ -66,7 +66,6 @@ const TableGraph = () => {
   }
 
   function rankingPokemon() {
-
     let orderList;
     let filter;
 
@@ -119,7 +118,7 @@ const TableGraph = () => {
       <div className="header">
         <div id="title">
           <span>Top 5 Pokemons</span>
-          <img src={top} alt="habilidades" />
+          <img src={identifyIcon()} alt="habilidades" />
         </div>
         <div id="filters">
           <div id="buttons">
@@ -127,9 +126,6 @@ const TableGraph = () => {
             <button className="btn atk" onClick={() => handleClick('atk')} >atk</button>
             <button className="btn def" onClick={() => handleClick('def')} >def</button>
             <button className="btn vel last" onClick={() => handleClick('vel')} >vel</button>
-          </div>
-          <div id="icon">
-            <img src={identifyIcon()} />
           </div>
         </div>
       </div>

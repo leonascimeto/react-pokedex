@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-
+  gap: 1rem;
   
   button{
     cursor: pointer;
@@ -22,7 +22,6 @@ export const Container = styled.div`
       height: 2rem;
       border-radius: 50%;
       border:none;
-      margin: 0 .5rem;
     }
 
     &.active{
@@ -32,7 +31,6 @@ export const Container = styled.div`
     &.arrow{
       background: none;
       border:none;
-
       width: 2.2rem;
     }
   }

@@ -15,7 +15,9 @@ import linkedin from '../../assets/icons/linkedin.png';
 const AboutUs = () => {
   return (
     <S.Container>
-      <AsideMenu active={4} />
+      <S.Menu>
+        <AsideMenu active={4} />
+      </S.Menu>
       <S.Content>
         <S.Developer>
           <div id="myLogo">

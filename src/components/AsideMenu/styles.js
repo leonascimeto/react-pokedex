@@ -1,11 +1,25 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  width: 23rem;
   display: grid;
   grid-template-rows: repeat(10, 10vh);
-  position: fixed;
   background-image: var(--primary-color);
+  position: fixed;
+  width: 360px;
+  z-index: 3000;
+
+  @media(max-width: 1024px){
+    width: 160px;
+  }
+
+  @media(max-width: 560px){
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem 0;
+  }
+  
 `;
 
 export const Logo = styled.div`
@@ -13,6 +27,16 @@ export const Logo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media(max-width: 1024px){
+    img{
+      display: none;
+    }
+  }
+
+  @media(max-width: 560px){
+    display: none;
+  }
 `
 
 export const Options = styled.div`
@@ -46,5 +70,21 @@ export const Options = styled.div`
   img{
     width: 2rem;
     height: 2rem; 
+  }
+
+  @media(max-width: 1024px){
+    span{
+      display: none;
+    }
+  }
+
+  @media(max-width: 560px){
+    display: flex;
+    justify-content: center;
+    button{
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+    }
   }
 `

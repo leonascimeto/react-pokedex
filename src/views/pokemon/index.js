@@ -13,10 +13,12 @@ import typesIcons from '../../utils/typesIcons';
 import { useParams } from 'react-router';
 import RadarStatus from '../../components/graphs/RadarStatus';
 import BarStatus from '../../components/graphs/BarStatus';
+import LoadingSpinnerScreen from '../../components/LoadingSpinnerScreen';
 
 const Pokemon = () => {
   const lastPokemonId = limitPokemons;
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
   const [pokemon, setPokemon] = useState({});
   const [idPokemon, setIdPokemon] = useState(id ? Number.parseInt(id, 10) : 1);
   const [btnRadar, setBtnRadar] = useState(false);
@@ -24,26 +26,32 @@ const Pokemon = () => {
   window.history.pushState("", "", "/pokemon");
 
   async function fetchPokemonById() {
+    setLoading(true);
+    try {
+      const responsePokemon = await api.get(`/pokemon/${idPokemon}`);
+      const { id, name, types, sprites, abilities, weight, height, stats } = responsePokemon.data;
 
-    const responsePokemon = await api.get(`/pokemon/${idPokemon}`);
-    const { id, name, types, sprites, abilities, weight, height, stats } = responsePokemon.data;
 
+      const objPokemon = {
+        id,
+        name,
+        types,
+        img: sprites.other.dream_world.front_default,
+        abilities,
+        weight,
+        height,
+        hp: stats[0].base_stat,
+        atk: stats[1].base_stat,
+        def: stats[2].base_stat,
+        vel: stats[5].base_stat
+      }
+      setPokemon(objPokemon);
+      setLoading(false);
 
-    const objPokemon = {
-      id,
-      name,
-      types,
-      img: sprites.other.dream_world.front_default,
-      abilities,
-      weight,
-      height,
-      hp: stats[0].base_stat,
-      atk: stats[1].base_stat,
-      def: stats[2].base_stat,
-      vel: stats[5].base_stat
+    } catch (error) {
+      alert('Error: falaha na conexão com a API');
+      console.error(error);
     }
-    console.log(objPokemon);
-    setPokemon(objPokemon);
   }
 
   const graph = {
@@ -82,14 +90,19 @@ const Pokemon = () => {
 
   return (
     <S.Container>
-      <AsideMenu active={3} />
+      <S.Menu>
+        <AsideMenu active={3} />
+      </S.Menu>
       <S.Content>
+        {
+          loading && <LoadingSpinnerScreen />
+        }
         <S.SearchArea>
           <Search setIdPokemon={setIdPokemon} />
         </S.SearchArea>
         <S.CardArea>
           <div className="arrow">
-            <button disabled={idPokemon <= 1} onClick={pagination.prev}>
+            <button disabled={idPokemon <= 1 && loading !== true} onClick={pagination.prev}>
               <img id="#left" src={left} alt="Anterior" />
             </button>
           </div>
@@ -163,7 +176,7 @@ const Pokemon = () => {
           </S.Card>
 
           <div className="arrow">
-            <button disabled={idPokemon >= lastPokemonId} onClick={pagination.next}>
+            <button disabled={idPokemon >= lastPokemonId && loading !== true} onClick={pagination.next}>
               <img id="#right" src={right} alt="Próximo" />
             </button>
           </div>

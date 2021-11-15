@@ -7,11 +7,13 @@ import TableGraph from '../../components/tables/TableGraphHome';
 import CardInfo from '../../components/CardInfo';
 import AsideMenu from '../../components/AsideMenu';
 import TableMain from '../../components/tables/TableMainHome';
+import LoadingSpinnerScreen from '../../components/LoadingSpinnerScreen';
 
 const Home = () => {
 
   const [selectCard, setSelectCard] = useState('especies');
   const [cardValues, setCardValues] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   function handleClick(cardSelected) {
     if (selectCard !== cardSelected)
@@ -26,14 +28,18 @@ const Home = () => {
 
   useEffect(() => {
     fetchTotalValues();
-    setTimeout(() => {
-      console.log(cardValues)
-    }, 6000);
   }, []);
 
   return (
     <S.Container>
-      <AsideMenu active={1} />
+      <S.Menu>
+        <AsideMenu active={1} />
+
+      </S.Menu>
+
+      {
+        loading && <LoadingSpinnerScreen />
+      }
       <S.Content>
         <S.Cards>
           <button className="btn-cards .active" onClick={() => handleClick('especies')} >
@@ -49,15 +55,18 @@ const Home = () => {
             <CardInfo title="Localizações" selectCard={selectCard} value={cardValues[3]} active={selectCard === 'localizacoes'} />
           </button>
         </S.Cards>
+
         <S.Main>
           <S.Table>
-            <TableMain selectCard={selectCard} cardValues={cardValues} />
+            <TableMain selectCard={selectCard} cardValues={cardValues} loading={loading} setLoading={setLoading} />
           </S.Table>
           <S.Graph>
-            <TableGraph />
+            <TableGraph loading={loading} setLoading={setLoading} />
           </S.Graph>
         </S.Main>
       </S.Content>
+
+
     </S.Container>
   )
 }
