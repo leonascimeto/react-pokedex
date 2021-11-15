@@ -7,7 +7,8 @@ import habilidadesIcon from '../../../assets/icons/bolt.png';
 import tiposIcon from '../../../assets/icons/category.png';
 import localizacoesIcon from '../../../assets/icons/location-full.png';
 
-const TableMain = ({ selectCard, cardValues, loading, setLoading }) => {
+const TableMain = ({ selectCard, cardValues, setLoading }) => {
+  const [dataTable, setDataTable] = useState([]);
 
   function identyfyCard() {
     switch (selectCard) {
@@ -43,9 +44,6 @@ const TableMain = ({ selectCard, cardValues, loading, setLoading }) => {
         break;
     }
   }
-
-  const [dataTable, setDataTable] = useState([]);
-
 
   async function fetchSpecies() {
     setLoading(true);

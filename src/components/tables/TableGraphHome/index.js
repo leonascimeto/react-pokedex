@@ -21,7 +21,7 @@ const TableGraph = ({ setLoading }) => {
     try {
       //const total = await api.get('/pokemon').then(res => res.data.count);
       const total = totalPokemons;
-      const allPromises = await api.get(`/pokemon?limit=${648}`).then(res => res.data.results);
+      const allPromises = await api.get(`/pokemon?limit=${total}`).then(res => res.data.results);
 
       const arrayStats = [];
 

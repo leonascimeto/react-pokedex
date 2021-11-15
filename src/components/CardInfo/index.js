@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import * as S from './styles'
+import React from 'react';
+import * as S from './styles';
 
 //icons
 import pokemon from '../../assets/icons/pokemon.png';
@@ -39,4 +39,4 @@ const CardInfo = ({ title, value, active }) => {
   )
 }
 
-export default CardInfo
+export default CardInfo;

@@ -55,14 +55,6 @@ const BarPokemonsRanking = ({ ranking }) => {
 
   const options = {
     indexAxis: 'y',
-    scales: {
-      ticks: {
-        display: false,
-        font: {
-          size: 15
-        }
-      },
-    },
     plugins: {
       legend: {
         display: false
@@ -88,7 +80,13 @@ const BarPokemonsRanking = ({ ranking }) => {
       },
       y: {
         stacked: true
-      }
+      },
+      ticks: {
+        display: false,
+        font: {
+          size: 15
+        }
+      },
     }
   }
 
