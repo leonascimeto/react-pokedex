@@ -30,7 +30,7 @@ const RadarStatus = ({ hp, atk, def, vel }) => {
         }
       },
       r: {
-        backgroundColor: '#8844EE',
+        backgroundColor: '#0052b6',
         pointLabels: {
           font: {
             size: 16,

@@ -41,9 +41,7 @@ const BarPokemonsRanking = ({ ranking }) => {
         datasets: [{
           label: ranking.filter,
           data: [...dataList],
-          backgroundColor: 'rgba(136, 68, 238, 0.2)',
-          borderColor: 'rgba(32, 16, 48, 1)',
-          borderWidth: 2,
+          backgroundColor: '#0052b6',
           datalabels: {
             align: 'center',
             anchor: 'end'

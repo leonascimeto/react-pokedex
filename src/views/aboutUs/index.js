@@ -85,7 +85,7 @@ const AboutUs = () => {
                   </a>
                 </div>
                 <div className="item curriculo" >
-                  <a href="https://www.linkedin.com/in/leonascimentopro/" target="_blank" rel="noreferrer">Meu Curricúlo</a>
+                  <a href="https://www.canva.com/design/DAEj0-E81Ik/b29qYip6n07HX0JI2jjeCw/view?utm_content=DAEj0-E81Ik&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu" target="_blank" rel="noopener noreferrer">Meu Curricúlo</a>
                 </div>
 
               </div>
