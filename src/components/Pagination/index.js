@@ -1,13 +1,8 @@
-<<<<<<< HEAD
 import React, { useState, useCallback, useEffect } from 'react';
-=======
-import React, { useState, useCallback } from 'react';
->>>>>>> 1582c88187ccb170afcd6563bf66e99fe2eef169
 import * as S from './styles';
 // //imagens
 import left from '../../assets/icons/left.png';
 import right from '../../assets/icons/right.png';
-import { useEffect } from 'react/cjs/react.development';
 
 //quantidade de botões
 const MAX_ITEMS = 5;
