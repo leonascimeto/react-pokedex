@@ -21,9 +21,7 @@ export const Container = styled.div`
         justify-content: space-between;
         align-items: center;
       }
-
      
-
       #filters{
         display: flex;
         align-items: center;
@@ -99,7 +97,8 @@ export const Container = styled.div`
           }
         }
 
-        height: 200px;
+        height: 360px;
+        margin-bottom: 1rem;
       }
 
 `;

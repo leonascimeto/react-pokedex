@@ -9,15 +9,13 @@ export const Container = styled.div`
   z-index: 3000;
 
   @media(max-width: 1024px){
-    width: 160px;
+    width: 120px;
   }
 
   @media(max-width: 560px){
-    position: relative;
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 1rem 0;
   }
   
 `;
@@ -37,7 +35,84 @@ export const Logo = styled.div`
   @media(max-width: 560px){
     display: none;
   }
-`
+
+
+`;
+
+export const Burger = styled.div`
+    position: fixed;
+    top: 6px;
+    right: 6px;
+
+  .menu{
+    width: 3rem;
+    height: 3rem;
+    border: 4px solid #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+    display: none;
+
+    
+    
+    .bars{
+      width: 2rem;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 8px;
+      position: relative;
+      transition: all .5s ease-in-out;
+    }
+
+    .bars::before,
+    .bars::after{
+      position: absolute;
+      content: '';
+      width: 2rem;
+      height: 4px;
+      background-color: #fff;
+      border-radius: 8px;
+      transition: all .5s ease-in-out;
+    }
+
+    .bars::before{
+      transform: translateY(-10px);
+    }
+
+    .bars::after{
+      transform: translateY(10px);
+    }
+
+
+  }
+      /* animations */
+
+    .open{
+      border: none;
+    }
+    
+    .open .bars{
+      transform: translateX(-25px);
+      background: transparent;
+    }
+
+    .open .bars::before{
+      transform: rotate(45deg) translate(18px, -18px);
+    }
+
+    .open .bars::after{
+      transform: rotate(-45deg) translate(18px, 18px);
+    }
+
+    @media (max-width: 560px){
+      .menu{
+        display: flex;
+      }
+    }
+
+`;
 
 export const Options = styled.div`
   grid-row: 4/11;
@@ -79,12 +154,17 @@ export const Options = styled.div`
   }
 
   @media(max-width: 560px){
-    display: flex;
-    justify-content: center;
+    display: ${props => props.menuOpen ? `flex` : `none`};
+    flex-direction: column;
+    width: 100%;
+    background-image: var(--primary-color);
     button{
-      width: 3rem;
-      height: 3rem;
-      border-radius: 50%;
+      background-color: #0052b6;
+      height: 4rem;
+    }
+    span{
+      font-size: 1rem;
+      display: flex;
     }
   }
 `

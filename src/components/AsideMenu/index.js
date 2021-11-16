@@ -11,13 +11,21 @@ import { Link } from 'react-router-dom';
 
 const AsideMenu = ({ active }) => {
   const [actived, setActived] = useState(active);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <S.Container>
+      <S.Burger>
+        <div className={menuOpen ? `open menu` : `menu`} onClick={() => setMenuOpen(!menuOpen)}>
+          <div className="bars">
+
+          </div>
+        </div>
+      </S.Burger>
       <S.Logo>
         <div><img src={logo} alt="logo" /></div>
       </S.Logo>
-      <S.Options>
+      <S.Options menuOpen={menuOpen}>
         <Link to="/">
           <button onClick={() => setActived(1)} className={actived === 1 && 'actived'}>
             <img src={info} alt="" />

@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import * as S from './styles'
+import React, { useState, useEffect, useCallback } from 'react';
+import * as S from './styles';
 import api from '../../services/api';
 import limitPokemons from '../../utils/global-info';
 
@@ -50,9 +50,10 @@ const Galery = () => {
             habitat,
             img: sprites.other.dream_world.front_default
           })
-        }).then(() => setLoading(false))
+        });
       }
       setPokeonList(pokemons);
+      setLoading(false);
     } catch (error) {
       alert('falha na listagem dos items');
     }
@@ -83,4 +84,4 @@ const Galery = () => {
   )
 }
 
-export default Galery
+export default Galery;

@@ -7,6 +7,10 @@ export const Container = styled.div`
     display: grid;
     grid-template-rows: 2fr 1fr 7fr;
 
+    @media(max-width: 560px){
+      height: 360px;
+    }
+
     .header{
       color: #fff;
       font-size: 2rem;
@@ -15,6 +19,10 @@ export const Container = styled.div`
       display: flex;
       justify-content: space-between;
       align-items: center;
+
+      @media(max-width: 560px){
+        font-size: 1.2rem;
+      }
 
       img{
         width: 3rem;
@@ -36,11 +44,12 @@ export const Container = styled.div`
       }
 
       @media(max-width: 560px){
-        font-size: 1rem;
         text-align: center;
+
 
         span{
           justify-self: flex-start;
+          font-size: 1rem;
         }
       }
     }

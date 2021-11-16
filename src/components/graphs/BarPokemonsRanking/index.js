@@ -90,11 +90,13 @@ const BarPokemonsRanking = ({ ranking }) => {
   }
 
   return (
-    <Bar
-      data={data}
+    <div>
+      <Bar
+        data={data}
 
-      options={options}
-    />
+        options={options}
+      />
+    </div>
   )
 }
 

@@ -5,7 +5,7 @@ export const Container = styled.div`
   grid-template-columns: 360px auto;
 
   @media(max-width: 1024px){
-    grid-template-columns: 160px auto;
+    grid-template-columns: 120px auto;
   }
 
   @media(max-width: 560px){
