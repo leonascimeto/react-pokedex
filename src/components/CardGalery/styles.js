@@ -24,6 +24,11 @@ export const Content = styled.div`
   align-items: center;
   position: relative;
 
+  @media(max-width: 560px){
+    width: 100px;
+    height: 100px;
+  }
+
 
   // tippy.js
   .tippy-box{

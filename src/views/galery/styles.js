@@ -30,7 +30,6 @@ export const Cards = styled.div`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  padding: 0 2rem;
 `
 
 export const Pagination = styled.div`
