@@ -25,14 +25,6 @@ const BarStatus = ({ hp, atk, def, vel }) => {
 
   const options = {
     indexAxis: 'y',
-    scales: {
-      ticks: {
-        display: false,
-        font: {
-          size: 15
-        }
-      },
-    },
     plugins: {
       legend: {
         display: false
@@ -58,7 +50,13 @@ const BarStatus = ({ hp, atk, def, vel }) => {
       },
       y: {
         stacked: true
-      }
+      },
+      ticks: {
+        display: false,
+        font: {
+          size: 15
+        }
+      },
     }
   }
 

@@ -1,6 +1,5 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Bar } from 'react-chartjs-2';
-import { useEffect, useState } from 'react/cjs/react.development';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 import { Chart } from 'chart.js';
 
@@ -55,14 +54,6 @@ const BarPokemonsRanking = ({ ranking }) => {
 
   const options = {
     indexAxis: 'y',
-    scales: {
-      ticks: {
-        display: false,
-        font: {
-          size: 15
-        }
-      },
-    },
     plugins: {
       legend: {
         display: false
@@ -88,7 +79,13 @@ const BarPokemonsRanking = ({ ranking }) => {
       },
       y: {
         stacked: true
-      }
+      },
+      ticks: {
+        display: false,
+        font: {
+          size: 15
+        }
+      },
     }
   }
 

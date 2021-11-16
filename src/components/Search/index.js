@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import * as S from './styles';
 import lupa from '../../assets/icons/search.png';
 import api from '../../services/api';
@@ -10,10 +10,23 @@ const Search = ({ setIdPokemon }) => {
   const [nameList, setNameList] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
-  async function fetchNames() {
-    const response = await api.get(`/pokemon?limit=${totalPokemons}`);
-    setNameList(response.data.results);
-  }
+  // async function fetchNames() {
+  //   try {
+  //     const response = await api.get(`/pokemon?limit=${totalPokemons}`);
+  //     setNameList(response.data.results);
+  //   } catch (error) {
+  //     alert('Error: falah na conexão com a API - Listagem de nomes')
+  //   }
+  // }
+
+  const fetchNames = useCallback(async () => {
+    try {
+      const response = await api.get(`/pokemon?limit=${totalPokemons}`);
+      setNameList(response.data.results);
+    } catch (error) {
+      alert('Error: falah na conexão com a API - Listagem de nomes')
+    }
+  }, [totalPokemons]);
 
   async function fetchId(name) {
     try {
@@ -23,8 +36,6 @@ const Search = ({ setIdPokemon }) => {
     } catch (err) {
       alert("Erro ao buscar dados na API")
     }
-
-
   }
 
   function onChangeHandler(text) {
@@ -46,10 +57,10 @@ const Search = ({ setIdPokemon }) => {
     setSuggestions([]);
     fetchId(text);
   }
+
   useEffect(() => {
     fetchNames();
-
-    console.log(nameList)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 

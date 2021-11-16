@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import * as S from './styles';
 // //imagens
 import left from '../../assets/icons/left.png';
@@ -8,14 +8,17 @@ import right from '../../assets/icons/right.png';
 const MAX_ITEMS = 5;
 
 const Pagination = ({ page, totalPages, setPage, loading }) => {
-  let firstButton = page - Math.floor(MAX_ITEMS / 2);
-  let lastButton = page + Math.floor(MAX_ITEMS / 2);
 
-  const [optionsButtons, setOptionsButtons] = useState([2, 3, 4, 5, 6])
 
-  const arrayOptions = [];
+  const [optionsButtons, setOptionsButtons] = useState([])
 
-  function generatedOptions() {
+
+
+
+  const generatedOptions = useCallback(() => {
+    const arrayOptions = [];
+    let firstButton = page - Math.floor(MAX_ITEMS / 2);
+    let lastButton = page + Math.floor(MAX_ITEMS / 2);
 
     if (firstButton < 1) {
       firstButton = 1;
@@ -32,7 +35,7 @@ const Pagination = ({ page, totalPages, setPage, loading }) => {
     }
 
     setOptionsButtons(arrayOptions);
-  }
+  }, [page, totalPages])
 
   const controls = {
     next() {
@@ -48,7 +51,7 @@ const Pagination = ({ page, totalPages, setPage, loading }) => {
 
   useEffect(() => {
     generatedOptions();
-  }, [page])
+  }, [generatedOptions]);
 
   return (
     <div>
@@ -62,7 +65,7 @@ const Pagination = ({ page, totalPages, setPage, loading }) => {
 
         </button>
         {
-          optionsButtons.map(option => <button key={option} className={(option === page) ? 'number active' : 'number'} onClick={() => controls.goTo(option)} >{option}</button>)
+          optionsButtons.map((option, index) => <button key={index} className={(option === page) ? 'number active' : 'number'} onClick={() => controls.goTo(option)} >{option}</button>)
         }
         <button
           className="arrow"

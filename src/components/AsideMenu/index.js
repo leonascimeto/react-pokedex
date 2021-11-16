@@ -18,7 +18,7 @@ const AsideMenu = ({ active }) => {
         <div><img src={logo} alt="logo" /></div>
       </S.Logo>
       <S.Options>
-        <Link to="/">
+        <Link to="/home">
           <button onClick={() => setActived(1)} className={actived === 1 && 'actived'}>
             <img src={info} alt="" />
             <span>Informações</span>
@@ -36,7 +36,7 @@ const AsideMenu = ({ active }) => {
             <span>Pokemon</span>
           </button>
         </Link>
-        <Link to="/aboutus">
+        <Link to="/">
           <button onClick={() => setActived(4)} className={actived === 4 && 'actived'}>
             <img src={aboutUs} alt="sobre" />
             <span>Sobre Nós</span>

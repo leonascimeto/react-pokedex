@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import * as S from './styles';
 import api from '../../../services/api';
 import totalPokemons from '../../../utils/global-info';
@@ -9,9 +9,8 @@ import heart from '../../../assets/icons/heart.png';
 import sword from '../../../assets/icons/sword.png';
 import shield from '../../../assets/icons/shield.png';
 import run from '../../../assets/icons/run.png';
-import { useEffect } from 'react/cjs/react.development';
 
-const TableGraph = ({ setLoading }) => {
+const TableGraph = ({ setLoading, loading }) => {
   const [btnActive, setBtnActive] = useState('hp');
   const [allPokemons, setAllPokemons] = useState([]);
   const [ranking, setRanking] = useState({});
@@ -19,9 +18,8 @@ const TableGraph = ({ setLoading }) => {
   async function fetchStatsAllPokemons() {
     setLoading(true);
     try {
-      //const total = await api.get('/pokemon').then(res => res.data.count);
       const total = totalPokemons;
-      const allPromises = await api.get(`/pokemon?limit=${648}`).then(res => res.data.results);
+      const allPromises = await api.get(`/pokemon?limit=${total}`).then(res => res.data.results);
 
       const arrayStats = [];
 
@@ -42,10 +40,12 @@ const TableGraph = ({ setLoading }) => {
 
         arrayStats.push(objPokemon);
 
-      })).then(() => setAllPokemons(arrayStats)).then(() => setLoading(false));
+      })).then(() => setAllPokemons(arrayStats));
+
+      setLoading(false);
 
     } catch (err) {
-      alert('Error: falha na conexão com os dados do gráfico')
+      alert('Error: falha na conexão com os dados do gráfico');
     }
 
   }
@@ -65,7 +65,7 @@ const TableGraph = ({ setLoading }) => {
     }
   }
 
-  function rankingPokemon() {
+  const rankingPokemon = useCallback(() => {
     let orderList;
     let filter;
 
@@ -97,7 +97,9 @@ const TableGraph = ({ setLoading }) => {
     }
 
     setRanking(rankingObj);
-  }
+  }, [allPokemons, btnActive])
+
+
 
   function handleClick(option) {
     if (btnActive !== option)
@@ -106,11 +108,12 @@ const TableGraph = ({ setLoading }) => {
 
   useEffect(() => {
     fetchStatsAllPokemons();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     rankingPokemon();
-  }, [btnActive, allPokemons]);
+  }, [rankingPokemon]);
 
   return (
     <S.Container btnActive={btnActive}>
@@ -131,7 +134,8 @@ const TableGraph = ({ setLoading }) => {
       </div>
       <div className="content">
         <div className="chartBar">
-          {ranking && <BarPokemonsRanking ranking={ranking} />}
+          {ranking !== true && <BarPokemonsRanking ranking={ranking} />}
+
         </div>
       </div>
     </S.Container>
