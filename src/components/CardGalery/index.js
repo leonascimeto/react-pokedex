@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import * as S from './styles';
 import { Link } from 'react-router-dom';
 
@@ -9,7 +9,12 @@ import pokebola from '../../assets/icons/pokebola-color.png';
 import returnIconType from '../../utils/typesIcons';
 import returnIconHabitat from '../../utils/habitatsIcons';
 
-const CardGalery = ({ pokemon }) => {
+const CardGalery = ({ pokemon, setLoading }) => {
+
+  useEffect(() => {
+    setLoading(false);
+  }, [])
+
   return (
     < S.Container >
       <S.Content>

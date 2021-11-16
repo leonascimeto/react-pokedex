@@ -53,7 +53,6 @@ const Galery = () => {
         }).then(() => setLoading(false))
       }
       setPokeonList(pokemons);
-      setLoading(false);
     } catch (error) {
       alert('falha na listagem dos items');
     }
@@ -70,8 +69,11 @@ const Galery = () => {
         <AsideMenu active={2} />
       </S.Menu>
       <S.Content>
+        {
+          loading && <LoadingSpinnerScreen />
+        }
         <S.Cards>
-          {loading ? <LoadingSpinnerScreen /> : pokemonsList.map(pokemon => <CardGalery key={pokemon.id} pokemon={pokemon} />)}
+          {pokemonsList.map(pokemon => <CardGalery key={pokemon.id} pokemon={pokemon} setLoading={setLoading} />)}
         </S.Cards>
         <S.Pagination>
           <Pagination page={page} totalPages={totalPages} setPage={setPage} loading={loading} />

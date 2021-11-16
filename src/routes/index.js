@@ -9,11 +9,11 @@ const Routes = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/home' exact component={Home} />
+        <Route path='/' exact component={Home} />
         <Route path='/galery' exact component={Galery} />
         <Route path='/pokemon' exact component={Pokemon} />
         <Route path='/pokemon/:id' exact component={Pokemon} />
-        <Route path='/' exact component={AboutUs} />
+        <Route path='/aboutus' exact component={AboutUs} />
       </Switch>
     </BrowserRouter>
   )
