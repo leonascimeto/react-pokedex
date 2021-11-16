@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import * as S from './styles'
 import api from '../../services/api';
 import limitPokemons from '../../utils/global-info';
@@ -31,7 +31,7 @@ const Galery = () => {
     }
   }
 
-  async function fetchPokemons() {
+  const fetchPokemons = useCallback(async () => {
     setLoading(true);
     //definindo id dos pokemon que serão carregados baseados na página atual e limite de items
     const idInit = (page - 1) * peerPage;
@@ -58,11 +58,12 @@ const Galery = () => {
     } catch (error) {
       alert('falha na listagem dos items');
     }
-  }
+  }, [page, totalPages, totalPokemons]);
+
 
   useEffect(() => {
     fetchPokemons();
-  }, [page]);
+  }, [fetchPokemons]);
 
   return (
     <S.Container>
@@ -71,7 +72,6 @@ const Galery = () => {
       </S.Menu>
       <S.Content>
         <S.Cards>
-
           {loading ? <LoadingSpinnerScreen /> : pokemonsList.map(pokemon => <CardGalery key={pokemon.id} pokemon={pokemon} />)}
         </S.Cards>
         <S.Pagination>

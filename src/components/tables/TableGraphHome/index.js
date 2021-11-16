@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import * as S from './styles';
 import api from '../../../services/api';
 import totalPokemons from '../../../utils/global-info';
@@ -9,7 +9,6 @@ import heart from '../../../assets/icons/heart.png';
 import sword from '../../../assets/icons/sword.png';
 import shield from '../../../assets/icons/shield.png';
 import run from '../../../assets/icons/run.png';
-import { useEffect } from 'react/cjs/react.development';
 
 const TableGraph = ({ setLoading }) => {
   const [btnActive, setBtnActive] = useState('hp');
@@ -65,7 +64,7 @@ const TableGraph = ({ setLoading }) => {
     }
   }
 
-  function rankingPokemon() {
+  const rankingPokemon = useCallback(() => {
     let orderList;
     let filter;
 
@@ -97,7 +96,9 @@ const TableGraph = ({ setLoading }) => {
     }
 
     setRanking(rankingObj);
-  }
+  }, [allPokemons, btnActive])
+
+
 
   function handleClick(option) {
     if (btnActive !== option)
@@ -106,11 +107,12 @@ const TableGraph = ({ setLoading }) => {
 
   useEffect(() => {
     fetchStatsAllPokemons();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     rankingPokemon();
-  }, [btnActive, allPokemons]);
+  }, [rankingPokemon]);
 
   return (
     <S.Container btnActive={btnActive}>

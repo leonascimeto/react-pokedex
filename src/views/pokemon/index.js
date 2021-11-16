@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import AsideMenu from '../../components/AsideMenu';
 import api from '../../services/api';
 import limitPokemons from '../../utils/global-info'
@@ -25,7 +25,8 @@ const Pokemon = () => {
   const [btnBar, setBtnBar] = useState(true);
   window.history.pushState("", "", "/pokemon");
 
-  async function fetchPokemonById() {
+
+  const fetchPokemonById = useCallback(async () => {
     setLoading(true);
     try {
       const responsePokemon = await api.get(`/pokemon/${idPokemon}`);
@@ -52,7 +53,7 @@ const Pokemon = () => {
       alert('Error: falaha na conexão com a API');
       console.error(error);
     }
-  }
+  }, [idPokemon])
 
   const graph = {
     radar() {
@@ -86,7 +87,7 @@ const Pokemon = () => {
 
   useEffect(() => {
     fetchPokemonById();
-  }, [idPokemon])
+  }, [fetchPokemonById])
 
   return (
     <S.Container>
