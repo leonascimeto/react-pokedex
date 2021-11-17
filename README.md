@@ -18,13 +18,13 @@ React-Pokedex
 
 <div align="center">
 
-<button><a target="_blank" href="https://react-podedex-leon-project.netlify.app/"><img alt="netlify" src="github/netlify.svg" ></img></a></button>
+<a target="_blank" href="https://react-podedex-leon-project.netlify.app/"><img alt="netlify" src="github/netlify.svg" ></img></a>
 
 </div>
 
 ## 🚀 Sobre o Projeto
 
-Pokedex criada com React e comsumindo uma API externa [pokeapi](pokeapi.co), o projeto tem como objetivo aplicar os conceitos que venho aprendendo sobre React e demais tecnologias de desenvolvimento de sistemas. O projeto estará sendo atualizado comforme vou aprendendo mais tecnlogias.
+Pokedex criada com React e comsumindo uma API externa [pokeapi](pokeapi.co), o projeto tem como objetivo aplicar os conceitos que venho aprendendo sobre React e demais tecnologias de desenvolvimento de sistemas. O projeto estará sendo atualizado comforme vou aprendendo mais tecnologias.
 
 ### 🛠 Tecnologias
 
