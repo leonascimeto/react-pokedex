@@ -47,13 +47,14 @@ export const Burger = styled.div`
   .menu{
     width: 3rem;
     height: 3rem;
-    border: 4px solid #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     cursor: pointer;
     transition: all .5s ease-in-out;
     display: none;
+    border-radius: 10px;
+    background-color: rgba(0,0,0,.4);
 
     
     
@@ -85,25 +86,18 @@ export const Burger = styled.div`
       transform: translateY(10px);
     }
 
-
   }
-      /* animations */
-
-    .open{
-      border: none;
-    }
-    
+      /* animations */    
     .open .bars{
-      transform: translateX(-25px);
       background: transparent;
     }
 
     .open .bars::before{
-      transform: rotate(45deg) translate(18px, -18px);
+      transform: rotate(45deg);
     }
 
     .open .bars::after{
-      transform: rotate(-45deg) translate(18px, 18px);
+      transform: rotate(-45deg);
     }
 
     @media (max-width: 560px){
