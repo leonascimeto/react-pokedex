@@ -18,7 +18,7 @@ React-Pokedex
 
 <div align="center">
 
-<button><a target="_blank" href="https://react-podedex-leon-project.netlify.app/"><img alt="netlify" src="github/netlify.svg" ></img></a></button>
+<a target="_blank" href="https://react-podedex-leon-project.netlify.app/"><img alt="netlify" src="github/netlify.svg" ></img></a>
 
 </div>
 
