@@ -10,21 +10,12 @@ const Search = ({ setIdPokemon }) => {
   const [nameList, setNameList] = useState([]);
   const [suggestions, setSuggestions] = useState([]);
 
-  // async function fetchNames() {
-  //   try {
-  //     const response = await api.get(`/pokemon?limit=${totalPokemons}`);
-  //     setNameList(response.data.results);
-  //   } catch (error) {
-  //     alert('Error: falah na conexão com a API - Listagem de nomes')
-  //   }
-  // }
-
   const fetchNames = useCallback(async () => {
     try {
       const response = await api.get(`/pokemon?limit=${totalPokemons}`);
       setNameList(response.data.results);
     } catch (error) {
-      alert('Error: falah na conexão com a API - Listagem de nomes')
+      alert('Error: falha na conexão com a API - Listagem de nomes')
     }
   }, [totalPokemons]);
 
@@ -46,8 +37,6 @@ const Search = ({ setIdPokemon }) => {
         return pok.name.match(regex)
       })
     }
-
-    console.log('matches: ', matches)
     setSuggestions(matches);
     setInputText(text);
   }
@@ -75,7 +64,8 @@ const Search = ({ setIdPokemon }) => {
 
       <S.AutoComplete>
         {suggestions && suggestions.map((sugest, i) => {
-          return <div className="suggestion" key={i} onClick={() => onSuggestionHandler(sugest.name)} >{sugest.name}</div>
+          const delay = `${i + 1}00ms`
+          return <li style={{ '--delay': delay }} className="suggestion" key={i} onClick={() => onSuggestionHandler(sugest.name)} >{sugest.name}</li>
         })}
       </S.AutoComplete>
     </S.Container>

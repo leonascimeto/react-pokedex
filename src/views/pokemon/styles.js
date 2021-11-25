@@ -22,13 +22,14 @@ export const Content = styled.div`
   padding: 1rem .5rem;
 `
 export const SearchArea = styled.div`
-
+  display: flex;
+  justify-content: center;
 `
 
 export const CardArea = styled.div`
   display: flex;
   justify-content: center;
-  padding-top: 2rem;
+  padding-top: 4rem;
 
   .arrow{
     height: 100%;
@@ -65,9 +66,8 @@ export const CardArea = styled.div`
 
 export const Card = styled.div`
     padding-top: 2rem;
-    width: 50%;
+    width: 60%;
     min-width: 280px;
-    
     
 .steel {
 	background-color: #f4f4f4;
@@ -153,7 +153,7 @@ export const TopCard = styled.div`
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 1rem;
       }
     }
     
@@ -162,15 +162,21 @@ export const TopCard = styled.div`
       width: 50%;
       justify-content: center;
       align-items: center;
-
-      @media(max-width: 1024px){
-        width: 100%;
-      }
-
       
       img{
         height: 250px;
       }
+
+      @media(max-width: 1024px){
+        margin-top: 2rem;
+        height: 180px;
+      }
+
+      @media(max-width: 560px){
+        margin-top: 2rem;
+        height: 150px;
+      }
+      
     }
 
     
@@ -190,7 +196,16 @@ export const TopCard = styled.div`
       justify-content: center;
       align-items: center;
       width: 80%;
-      height: 280px;
+      height: 400px;
+
+      @media(max-width: 1024px){
+        width: 60%;
+        height: 380px;
+      }
+      @media(max-width: 560px){
+        height: 250px;
+        width: 100%;
+      }
     }
 
     #graph-option{

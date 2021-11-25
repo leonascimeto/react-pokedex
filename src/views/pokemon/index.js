@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import { useParams } from 'react-router';
 import AsideMenu from '../../components/AsideMenu';
 import api from '../../services/api';
 import limitPokemons from '../../utils/global-info'
@@ -8,9 +9,10 @@ import * as S from './styles';
 //icones
 import left from '../../assets/icons/left.png';
 import right from '../../assets/icons/right.png';
-import Search from '../../components/Search';
 import typesIcons from '../../utils/typesIcons';
-import { useParams } from 'react-router';
+
+//components
+import Search from '../../components/Search';
 import RadarStatus from '../../components/graphs/RadarStatus';
 import BarStatus from '../../components/graphs/BarStatus';
 import LoadingSpinnerScreen from '../../components/LoadingSpinnerScreen';
@@ -31,7 +33,6 @@ const Pokemon = () => {
     try {
       const responsePokemon = await api.get(`/pokemon/${idPokemon}`);
       const { id, name, types, sprites, abilities, weight, height, stats } = responsePokemon.data;
-
 
       const objPokemon = {
         id,

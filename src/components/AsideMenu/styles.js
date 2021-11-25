@@ -7,7 +7,7 @@ export const Container = styled.div`
   position: fixed;
   width: 360px;
   z-index: 3000;
-
+  
   @media(max-width: 1024px){
     width: 120px;
   }
@@ -151,9 +151,7 @@ export const Options = styled.div`
     display: ${props => props.menuOpen ? `flex` : `none`};
     flex-direction: column;
     width: 100%;
-    background-image: var(--primary-color);
     button{
-      background-color: #0052b6;
       height: 4rem;
     }
     span{

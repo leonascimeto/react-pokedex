@@ -23,7 +23,9 @@ const Home = () => {
   async function fetchTotalValues() {
     const querys = ['/pokemon-species', '/type', '/ability', '/location'];
     const arrayTotals = []
-    Promise.all(querys.map(async item => arrayTotals.push(await api.get(item).then(res => res.data.count)))).then(() => setCardValues(arrayTotals));
+    Promise.all(
+      querys.map(async item => arrayTotals.push(await api.get(item).then(res => res.data.count)))
+    ).then(() => setCardValues(arrayTotals));
   }
 
   useEffect(() => {

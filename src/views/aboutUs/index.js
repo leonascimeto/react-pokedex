@@ -10,6 +10,7 @@ import adobexd from '../../assets/icons/adobexd.png';
 import email from '../../assets/icons/email.png';
 import github from '../../assets/icons/github.png';
 import linkedin from '../../assets/icons/linkedin.png';
+import { Link } from 'react-router-dom';
 
 
 const AboutUs = () => {
@@ -85,7 +86,7 @@ const AboutUs = () => {
                   </a>
                 </div>
                 <div className="item curriculo" >
-                  <a href="https://www.canva.com/design/DAEj0-E81Ik/b29qYip6n07HX0JI2jjeCw/view?utm_content=DAEj0-E81Ik&utm_campaign=designshare&utm_medium=link&utm_source=homepage_design_menu" target="_blank" rel="noopener noreferrer">Meu Curricúlo</a>
+                  <Link to="/files/leonardo fernandes do nascimento.pdf" target="_blank" download>Meu Currículo</Link>
                 </div>
 
               </div>
