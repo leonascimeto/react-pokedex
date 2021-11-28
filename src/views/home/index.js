@@ -22,9 +22,12 @@ const Home = () => {
 
   async function fetchTotalValues() {
     const querys = ['/pokemon-species', '/type', '/ability', '/location'];
-    const arrayTotals = []
+    const arrayTotals = Array.from({ length: 4 });
     await Promise.all(
-      querys.map(async item => arrayTotals.push(await api.get(item).then(res => res.data.count)))
+      querys.map(async (item, index) => {
+        const response = await api.get(item);
+        arrayTotals[index] = await response.data.count;
+      })
     );
     setCardValues(arrayTotals);
   }
